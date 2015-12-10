@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidAid</string>
+    <string name="accessibility_service_label">android aid demo</string>
+    <string name="accessibility_service_description">use accessibilityservice to aid user.</string>
+    <string name="title_activity_main">AndroidAid</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>
