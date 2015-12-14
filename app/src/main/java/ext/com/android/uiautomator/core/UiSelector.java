@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.uiautomator.core;
+package ext.com.android.uiautomator.core;
 
 import android.util.SparseArray;
 import android.view.accessibility.AccessibilityNodeInfo;

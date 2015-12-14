@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.uiautomator.core;
+package ext.com.android.uiautomator.core;
 
 import android.app.UiAutomation.OnAccessibilityEventListener;
 import android.os.SystemClock;
@@ -26,6 +26,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
  * The QueryController main purpose is to translate a {@link UiSelector} selectors to
  * {@link AccessibilityNodeInfo}. This is all this controller does.
  */
+public
 class QueryController {
 
     private static final String LOG_TAG = QueryController.class.getSimpleName();
@@ -55,32 +56,32 @@ class QueryController {
 
     public QueryController(UiAutomatorBridge bridge) {
         mUiAutomatorBridge = bridge;
-        bridge.setOnAccessibilityEventListener(new OnAccessibilityEventListener() {
-            @Override
-            public void onAccessibilityEvent(AccessibilityEvent event) {
-                synchronized (mLock) {
-                    switch(event.getEventType()) {
-                        case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
-                            // don't trust event.getText(), check for nulls
-                            if (event.getText() != null && event.getText().size() > 0) {
-                                if(event.getText().get(0) != null)
-                                    mLastActivityName = event.getText().get(0).toString();
-                            }
-                           break;
-                        case AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY:
-                            // don't trust event.getText(), check for nulls
-                            if (event.getText() != null && event.getText().size() > 0)
-                                if(event.getText().get(0) != null)
-                                    mLastTraversedText = event.getText().get(0).toString();
-                            if (DEBUG)
-                                Log.d(LOG_TAG, "Last text selection reported: " +
-                                        mLastTraversedText);
-                            break;
-                    }
-                    mLock.notifyAll();
-                }
-            }
-        });
+//        bridge.setOnAccessibilityEventListener(new OnAccessibilityEventListener() {
+//            @Override
+//            public void onAccessibilityEvent(AccessibilityEvent event) {
+//                synchronized (mLock) {
+//                    switch(event.getEventType()) {
+//                        case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
+//                            // don't trust event.getText(), check for nulls
+//                            if (event.getText() != null && event.getText().size() > 0) {
+//                                if(event.getText().get(0) != null)
+//                                    mLastActivityName = event.getText().get(0).toString();
+//                            }
+//                           break;
+//                        case AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY:
+//                            // don't trust event.getText(), check for nulls
+//                            if (event.getText() != null && event.getText().size() > 0)
+//                                if(event.getText().get(0) != null)
+//                                    mLastTraversedText = event.getText().get(0).toString();
+//                            if (DEBUG)
+//                                Log.d(LOG_TAG, "Last text selection reported: " +
+//                                        mLastTraversedText);
+//                            break;
+//                    }
+//                    mLock.notifyAll();
+//                }
+//            }
+//        });
     }
 
     /**
