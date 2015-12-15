@@ -27,4 +27,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop app"
+        android:id="@+id/stop_app"
+        android:layout_below="@+id/open_adb"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
